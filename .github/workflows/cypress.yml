@@ -24,11 +24,11 @@ jobs:
           ELECTRON_EXTRA_LAUNCH_ARGS: "--remote-debugging-port=9222"
         with:
           build: yarn build
-          start: yarn start
+          start: yarn serve
       - uses: actions/upload-artifact@v4
         with:
           name: test-results
-          path: test-results
+          path: ./cypress/downloads
           retention-days: 30
   chromatic:
     name: Run Chromatic on Cypress tests
@@ -46,9 +46,6 @@ jobs:
         run: yarn
       - name: Download Cypress test results
         uses: actions/download-artifact@v4
-        with:
-          name: test-results
-          path: ./test-results
       - name: Run Chromatic
         uses: chromaui/action@latest
         with:

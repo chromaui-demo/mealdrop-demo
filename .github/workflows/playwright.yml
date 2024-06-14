@@ -4,29 +4,29 @@ on: push
 jobs:
   playwright:
     runs-on: ubuntu-latest
+    container:
+      image: mcr.microsoft.com/playwright:v1.44.1-jammy
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0 # Required to retrieve git history
+          fetch-depth: 0
       - uses: actions/setup-node@v4
         with:
           node-version: 20
       - name: Install dependencies
         run: yarn
-      - name: Install Playwright
-        run: yarn playwright install --with-deps
       - name: Build app
-        run: yarn build
+        run: npm run build
       - name: Run Playwright
-        run: yarn playwright test
+        run: npx playwright test
         env:
           HOME: /root
       - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: test-results
-          path: test-results
+          path: ./test-results
           retention-days: 30
   chromatic:
     name: Run Chromatic on Playwright tests
@@ -43,9 +43,6 @@ jobs:
         run: yarn
       - name: Download Playwright test results
         uses: actions/download-artifact@v4
-        with:
-          name: test-results
-          path: ./test-results
       - name: Run Chromatic
         uses: chromaui/action@latest
         with:
