@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import styled, { css } from 'styled-components'
+import { motion } from 'framer-motion'
 
 import { Button } from '../../../../components/Button'
 import ladies from '../../../../assets/images/ladies.svg'
@@ -49,6 +50,11 @@ const StyledHeading = styled(Heading)(
   ({ theme: { color } }) => `
   margin-bottom: 2.5rem;
   padding: 0 2rem;
+
+  span {
+    color: ${color.primaryText};
+  }
+
   strong {
     color: ${color.primaryText};
     font-weight: 900;
@@ -56,11 +62,43 @@ const StyledHeading = styled(Heading)(
 `
 )
 
+const text = 'find your next meal'.split(' ')
+
 export const Banner = () => (
   <Container>
     <ContentContainer>
       <StyledHeading level={2}>
-        <strong>Hungry?</strong> find your next meal
+        <motion.strong
+          style={{ display: 'inline-flex' }}
+          initial={{ scale: 0.5 }}
+          animate={{ scale: 1 }}
+          transition={{
+            duration: 0.3,
+            delay: 1,
+            ease: [0, 0.71, 0.2, 1.01],
+            scale: {
+              type: 'spring',
+              damping: 5,
+              stiffness: 100,
+              restDelta: 0.001,
+            },
+          }}
+        >
+          Hungry?
+        </motion.strong>{' '}
+        {text.map((el, i) => (
+          <motion.span
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{
+              duration: 50,
+              delay: 2 + i / 10,
+            }}
+            key={i}
+          >
+            {el}{' '}
+          </motion.span>
+        ))}
       </StyledHeading>
       <Link to="/categories">
         <Button>View all restaurants</Button>

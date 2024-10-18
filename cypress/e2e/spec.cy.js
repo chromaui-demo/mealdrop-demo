@@ -1,7 +1,10 @@
 describe('template spec', () => {
+  Cypress.on('window:before:load', (win) => {
+    win.disableAnimations = true
+  })
+
   it('loads homepage', () => {
     cy.visit('/')
-
     cy.wait(1000)
     cy.title().should('equal', 'Mealdrop - find your next meal')
   })
