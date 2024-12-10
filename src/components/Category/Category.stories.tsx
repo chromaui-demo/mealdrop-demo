@@ -29,3 +29,17 @@ export const Rounded: Story = {
     round: true,
   },
 }
+
+export const Video: Story = {
+  args: {
+    videoUrl: 'https://videos.pexels.com/video-files/3752507/3752507-hd_1920_1080_24fps.mp4',
+  },
+}
+
+export const VideoWithPoster: Story = {
+  args: {
+    videoUrl: 'https://videos.pexels.com/video-files/3752507/3752507-hd_1920_1080_24fps.mp4',
+    posterUrl:
+      'https://images.pexels.com/photos/2147491/pexels-photo-2147491.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=550',
+  },
+}

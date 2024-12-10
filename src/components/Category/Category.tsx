@@ -7,6 +7,8 @@ export type CategoryProps = {
   id?: string
   title: string
   photoUrl: string
+  videoUrl?: string
+  posterUrl?: string
   round?: boolean
 }
 
@@ -26,6 +28,7 @@ const Container = styled.figure<{ round: boolean }>(
     max-height: ${round ? '200px' : '309px'};
     margin: 0;
     padding: ${round ? '1.5rem 2rem' : '0'};
+    overflow: hidden;
 
     &:hover {
       opacity: 0.9;
@@ -42,6 +45,18 @@ const Image = styled.img(
     object-fit: cover;
     width: auto;
     border-radius: ${borderRadius.s};
+    width: 100%;
+    height: 100%;
+    min-width: 50px;
+    min-height: 50px;
+    max-height: 300px;
+  `
+)
+
+const Video = styled.video(
+  () => css`
+    object-fit: cover;
+    width: auto;
     width: 100%;
     height: 100%;
     min-width: 50px;
@@ -95,9 +110,22 @@ const Rounded = ({ title, photoUrl: url }: CategoryProps) => (
   </>
 )
 
-const Squared = ({ title, photoUrl: url }: CategoryProps) => (
+const Squared = ({ title, photoUrl, videoUrl, posterUrl }: CategoryProps) => (
   <>
-    <Image src={url} alt="restaurant category" />
+    {console.log(posterUrl)}
+    {videoUrl ? (
+      <Video
+        muted
+        loop
+        playsInline
+        disableRemotePlayback
+        autoPlay
+        poster={posterUrl}
+        src={videoUrl}
+      />
+    ) : (
+      <Image src={photoUrl} alt="restaurant category" />
+    )}
     <FloatingTitle>
       <Body type="span" fontWeight="medium">
         {title}
@@ -106,13 +134,19 @@ const Squared = ({ title, photoUrl: url }: CategoryProps) => (
   </>
 )
 
-export const Category = ({ photoUrl, title, round = false }: CategoryProps) => {
+export const Category = ({
+  videoUrl,
+  photoUrl,
+  posterUrl,
+  title,
+  round = false,
+}: CategoryProps) => {
   return (
     <Container round={round} data-testid={title}>
       {round ? (
         <Rounded photoUrl={photoUrl} title={title} />
       ) : (
-        <Squared photoUrl={photoUrl} title={title} />
+        <Squared photoUrl={photoUrl} title={title} videoUrl={videoUrl} posterUrl={posterUrl} />
       )}
     </Container>
   )
