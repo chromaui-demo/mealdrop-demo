@@ -58,7 +58,7 @@ export const WithModalOpen: Story = {
       modes: {
         l: allModes.l,
       },
-      // cropToViewport: true,
+      cropToViewport: true,
     },
   },
   play: async ({ canvasElement }) => {
