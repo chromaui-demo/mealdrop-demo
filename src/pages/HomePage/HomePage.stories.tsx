@@ -18,10 +18,7 @@ export default {
     msw: {
       handlers: [http.get(BASE_URL, () => HttpResponse.json(restaurants))],
     },
-    chromatic: { ignoreSelectors: ['.category-card'] },
   },
 } as Meta<typeof HomePage>
 
-const Template: StoryFn<typeof HomePage> = () => <HomePage />
-
-export const Default = Template.bind({})
+export const Default = {}

@@ -12,6 +12,16 @@ export const categories = [
     photoUrl:
       'https://images.pexels.com/photos/2233351/pexels-photo-2233351.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=550',
   },
+  // {
+  //   title: 'thai',
+  //   photoUrl:
+  //     'https://images.unsplash.com/photo-1562565652-a0d8f0c59eb4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1489&q=20',
+  // },
+  // {
+  //   title: 'indian',
+  //   photoUrl:
+  //     'https://images.unsplash.com/photo-1567337710282-00832b415979?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1488&q=20',
+  // },
   {
     id: 'desserts',
     title: 'Desserts',
@@ -36,14 +46,4 @@ export const categories = [
     photoUrl:
       'https://images.pexels.com/photos/1234535/pexels-photo-1234535.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=550',
   },
-  // {
-  //   title: 'thai',
-  //   photoUrl:
-  //     'https://images.unsplash.com/photo-1562565652-a0d8f0c59eb4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1489&q=20',
-  // },
-  // {
-  //   title: 'indian',
-  //   photoUrl:
-  //     'https://images.unsplash.com/photo-1567337710282-00832b415979?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1488&q=20',
-  // },
 ]
