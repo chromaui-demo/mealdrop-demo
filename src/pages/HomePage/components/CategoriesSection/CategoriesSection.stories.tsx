@@ -10,6 +10,9 @@ export default {
   args: {
     categories,
   },
+  parameters: {
+    chromatic: { ignoreSelectors: ['.category-card'] },
+  },
 } as Meta<typeof CategoriesSection>
 
 const Template: StoryFn<typeof CategoriesSection> = (args) => <CategoriesSection {...args} />

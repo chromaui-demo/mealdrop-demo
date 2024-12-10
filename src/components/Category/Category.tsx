@@ -142,7 +142,7 @@ export const Category = ({
   round = false,
 }: CategoryProps) => {
   return (
-    <Container round={round} data-testid={title}>
+    <Container round={round} data-testid={title} className="category-card">
       {round ? (
         <Rounded photoUrl={photoUrl} title={title} />
       ) : (

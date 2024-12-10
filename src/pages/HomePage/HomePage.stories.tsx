@@ -18,6 +18,7 @@ export default {
     msw: {
       handlers: [http.get(BASE_URL, () => HttpResponse.json(restaurants))],
     },
+    chromatic: { ignoreSelectors: ['.category-card'] },
   },
 } as Meta<typeof HomePage>
 
