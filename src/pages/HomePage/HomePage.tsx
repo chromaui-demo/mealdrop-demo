@@ -18,7 +18,7 @@ export const HomePage = () => (
     <Spacing />
     <RestaurantsSection title="Our favorite picks" />
     <Spacing />
-    {/* <AwardWinningSection /> */}
+    <AwardWinningSection />
     <Spacing />
     <CategoriesSection categories={categories} />
     <Spacing />
