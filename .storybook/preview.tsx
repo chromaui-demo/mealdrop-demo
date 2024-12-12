@@ -27,6 +27,7 @@ const breakpointViewports = Object.keys(breakpoints).reduce(
 
 const preview: Preview = {
   parameters: {
+    chromatic: { ignoreSelectors: ['.category-card'] },
     viewport: {
       viewports: {
         ...breakpointViewports,
