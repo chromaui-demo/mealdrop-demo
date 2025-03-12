@@ -19,6 +19,34 @@ const meta = {
         dark: allModes.dark,
       },
     },
+    a11y: {
+      config: {
+        rules: [
+          {
+            id: 'minimum-paragraph-length',
+            selector: 'p',
+            impact: 'critical',
+            all: ['paragraph-minimum-text'],
+            any: [],
+            none: [],
+            metadata: {
+              title: 'Minimum Paragraph Length',
+              description: 'Ensures paragraphs have meaningful content',
+              help: 'Paragraphs should contain at least 5 characters',
+            },
+          },
+        ],
+        checks: [
+          {
+            id: 'paragraph-minimum-text',
+            evaluate: function evaluate(node: HTMLParagraphElement) {
+              const textContent = node.textContent?.trim()
+              return textContent && textContent.length > 0 ? textContent.length > 50 : false
+            },
+          },
+        ],
+      },
+    },
   },
 } satisfies Meta<typeof RestaurantCard>
 
