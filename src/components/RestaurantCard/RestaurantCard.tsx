@@ -172,6 +172,7 @@ export const RestaurantCard = ({
       onClick={isClosed ? undefined : onClick}
     >
       {isNew && <NewTag>new</NewTag>}
+      <h2></h2>
       <ImageContainer>
         {isClosed && (
           <Closed>
