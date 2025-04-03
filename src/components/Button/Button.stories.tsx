@@ -6,7 +6,7 @@ const meta = {
   title: 'Components/Button',
   component: Button,
   args: {
-    children: 'Buttons',
+    children: 'Button',
   },
   parameters: {
     design: {
