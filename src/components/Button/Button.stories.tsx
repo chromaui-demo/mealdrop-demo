@@ -1,4 +1,4 @@
-import { userEvent, within } from '@storybook/test';
+import { userEvent, within } from '@storybook/test'
 import { StoryObj, Meta } from '@storybook/react'
 
 import { allModes } from '../../../.storybook/modes'
@@ -70,9 +70,16 @@ export const Rounded: Story = {
       },
     },
   },
-
+  decorators: [
+    (Story) => (
+      <div style={{ margin: '3em' }}>
+        {/* 👇 Decorators in Storybook also accept a function. Replace <Story/> with Story() to enable it  */}
+        <Story />
+      </div>
+    ),
+  ],
   play: async ({ canvasElement }) => {
-    const canvas = within(canvasElement.ownerDocument.body);
-    await userEvent.click(await canvas.findByRole('button', { name: 'Button' }));
-  }
+    const canvas = within(canvasElement.ownerDocument.body)
+    await userEvent.click(await canvas.findByRole('button', { name: 'Button' }))
+  },
 }
