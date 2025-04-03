@@ -1,4 +1,7 @@
+import { userEvent, within } from '@storybook/test';
 import { StoryObj, Meta } from '@storybook/react'
+
+import { allModes } from '../../../.storybook/modes'
 
 import { Button } from './Button'
 
@@ -50,4 +53,26 @@ export const IconAndText: Story = {
       </div>
     ),
   },
+}
+
+export const Rounded: Story = {
+  args: {
+    children: 'Button',
+    clear: false,
+    round: true,
+  },
+
+  parameters: {
+    chromatic: {
+      modes: {
+        light: allModes.light,
+        dark: allModes.dark,
+      },
+    },
+  },
+
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement.ownerDocument.body);
+    await userEvent.click(await canvas.findByRole('button', { name: 'Button' }));
+  }
 }
