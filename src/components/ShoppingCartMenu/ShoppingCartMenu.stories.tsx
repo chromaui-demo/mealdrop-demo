@@ -20,10 +20,10 @@ const meta = {
     isOpen: true,
     cartItems: cartItems,
     totalPrice: 1200,
-    /* 
+    /*
     The following lines emulate the event handlers that would be passed to the component
     Read more about the `fn` utility function at
-    https://storybook.js.org/docs/essentials/actions#via-storybooktest-fn-spy-function 
+    https://storybook.js.org/docs/essentials/actions#via-storybooktest-fn-spy-function
     */
     onClose: fn(),
     onItemChange: fn(),

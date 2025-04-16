@@ -90,6 +90,7 @@ export const FoodItemModal = ({
         <div>
           <TopContainer>
             <Heading>{item.name}</Heading>
+            <div style={{ color: '#ddd' }}>{item.name}</div>
             <StyledBody>{item.description}</StyledBody>
           </TopContainer>
           <BottomContainer>

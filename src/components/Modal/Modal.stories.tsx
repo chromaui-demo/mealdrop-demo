@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { useEffect, useState } from 'react'
-import { fn } from '@storybook/test'
+import { useState } from 'react'
+import { fn, fireEvent, expect } from '@storybook/test'
 
 import { Button } from '../Button'
 import { Body } from '../typography'
@@ -29,21 +29,22 @@ const meta = {
   ],
   args: {
     isOpen: false,
-    /* 
+    /*
     The following line emulates the event handler that would be passed to the component
     Read more about the `fn` utility function at
-    https://storybook.js.org/docs/essentials/actions#via-storybooktest-fn-spy-function 
+    https://storybook.js.org/docs/essentials/actions#via-storybooktest-fn-spy-function
     */
     onClose: fn(),
+  },
+  play: async ({ canvas }) => {
+    const button = await canvas.findByText(/Open modal/i)
+    await fireEvent.click(button)
+    await expect(canvas.getByTestId('modal')).toBeVisible()
   },
   render: () => {
     const [isOpen, setIsOpen] = useState(false)
     const openModal = () => setIsOpen(true)
     const closeModal = () => setIsOpen(false)
-
-    useEffect(() => {
-      setIsOpen(true)
-    }, [])
 
     return (
       <>
@@ -55,7 +56,7 @@ const meta = {
             closeModal()
           }}
         >
-          <Body style={{ padding: '1.5rem' }}>Some content here</Body>
+          <Body style={{ padding: '1.5rem', color: '#ddd' }}>Some content here</Body>
         </Modal>
       </>
     )
