@@ -1,8 +1,6 @@
 import { userEvent, within } from '@storybook/test'
 import { StoryObj, Meta } from '@storybook/react'
 
-import { allModes } from '../../../.storybook/modes'
-
 import { Button } from './Button'
 
 const meta = {
@@ -22,7 +20,11 @@ export default meta
 
 type Story = StoryObj<typeof meta>
 
-export const Default: Story = {}
+export const Default: Story = {
+  args: {
+    children: 'Button',
+  },
+}
 
 export const Disabled: Story = {
   args: {
@@ -58,22 +60,19 @@ export const IconAndText: Story = {
 export const Rounded: Story = {
   args: {
     children: 'Button',
-    clear: false,
     round: true,
-  },
-
-  parameters: {
-    chromatic: {
-      modes: {
-        light: allModes.light,
-        dark: allModes.dark,
-      },
-    },
   },
   decorators: [
     (Story) => (
-      <div style={{ margin: '3em' }}>
-        {/* 👇 Decorators in Storybook also accept a function. Replace <Story/> with Story() to enable it  */}
+      <div
+        style={{
+          padding: '2em',
+          display: 'block',
+          margin: 'auto',
+          textAlign: 'center',
+          maxWidth: '150px',
+        }}
+      >
         <Story />
       </div>
     ),
