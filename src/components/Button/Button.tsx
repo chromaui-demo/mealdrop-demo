@@ -4,6 +4,8 @@ import styled, { css, useTheme } from 'styled-components'
 import { breakpoints } from '../../styles/breakpoints'
 import { Icon } from '../Icon'
 
+const testColor = '#B9B9B4' // use to replace color.buttonPrimary
+
 const Spacer = styled.span`
   padding-left: 1rem;
 `
