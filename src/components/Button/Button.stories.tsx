@@ -61,4 +61,5 @@ export const LongName: Story = {
   args: {
     children: 'Buttonssssssssssss',
   },
+  tags: ['!dev'],
 }
