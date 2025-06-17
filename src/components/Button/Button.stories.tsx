@@ -57,28 +57,8 @@ export const IconAndText: Story = {
   },
 }
 
-export const Rounded: Story = {
+export const LongName: Story = {
   args: {
-    children: 'Button',
-    round: true,
-  },
-  decorators: [
-    (Story) => (
-      <div
-        style={{
-          padding: '2em',
-          display: 'block',
-          margin: 'auto',
-          textAlign: 'center',
-          maxWidth: '150px',
-        }}
-      >
-        <Story />
-      </div>
-    ),
-  ],
-  play: async ({ canvasElement }) => {
-    const canvas = within(canvasElement.ownerDocument.body)
-    await userEvent.click(await canvas.findByRole('button', { name: 'Button' }))
+    children: 'Buttonssssssssssss',
   },
 }
