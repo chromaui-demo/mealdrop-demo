@@ -59,7 +59,7 @@ export const IconAndText: Story = {
 
 export const LongName: Story = {
   args: {
-    children: 'Buttonssssssssssss',
+    children: 'Buttonsssssssssssssssss',
   },
   tags: ['!dev'],
 }
