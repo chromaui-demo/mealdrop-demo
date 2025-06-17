@@ -56,7 +56,7 @@ export const WithModalOpen: Story = {
     const canvas = within(canvasElement)
     const item = await canvas.findByText(/Cheeseburger/i)
     await userEvent.click(item)
-    await expect(canvas.getByTestId('modal')).toBeInTheDocument()
+    await expect(canvas.getByTestId('modals')).toBeInTheDocument()
   },
 }
 
