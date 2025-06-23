@@ -88,7 +88,7 @@ const Title = styled.figcaption`
 
 const Rounded = ({ title, photoUrl: url }: CategoryProps) => (
   <>
-    <RoundImage src={url} alt="restaurant category" />
+    <RoundImage src={url} />
     <Title>
       <Body type="span">{title}</Body>
     </Title>
@@ -97,7 +97,7 @@ const Rounded = ({ title, photoUrl: url }: CategoryProps) => (
 
 const Squared = ({ title, photoUrl: url }: CategoryProps) => (
   <>
-    <Image src={url} alt="restaurant category" />
+    <Image src={url} />
     <FloatingTitle>
       <Body type="span" fontWeight="medium">
         {title}
