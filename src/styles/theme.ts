@@ -117,7 +117,7 @@ const typography = {
 
 const color = {
   accentText: baseColors.black,
-  badgeBackground: baseColors.grey.light1,
+  badgeBackground: baseColors.grey.light4,
   badgeText: baseColors.grey.dark2,
   cartButtonText: baseColors.grey.base,
   bannerBackground: baseColors.blue.base,
