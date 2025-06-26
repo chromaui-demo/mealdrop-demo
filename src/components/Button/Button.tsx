@@ -15,6 +15,8 @@ type StyledButtonProperties = {
   $round: boolean
 }
 
+const testColor = '#B9B9B4' // use to replace color.buttonPrimary
+
 const StyledButton = styled.button<StyledButtonProperties>(
   ({ $clear, $large, $round, $withIcon, theme: { color, boxShadow, borderRadius } }) => css`
     outline: none;
@@ -29,7 +31,7 @@ const StyledButton = styled.button<StyledButtonProperties>(
 
     transition: box-shadow 150ms ease-in;
     z-index: 1;
-    background-color: ${$clear ? color.buttonClear : color.buttonPrimary};
+    background-color: ${$clear ? color.buttonClear : testColor};
 
     &:hover {
       cursor: pointer;
