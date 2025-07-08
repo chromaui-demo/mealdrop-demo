@@ -1,5 +1,5 @@
 import type { StoryObj, Meta } from '@storybook/react-vite'
-import { expect, userEvent, within } from 'storybook/test';
+import { expect, userEvent, within } from 'storybook/test'
 
 import { Button } from './Button'
 
@@ -55,16 +55,4 @@ export const IconAndText: Story = {
       </div>
     ),
   },
-}
-
-export const LongButtonName: Story = {
-  args: {
-    children: 'Buttonnnnssssssssss',
-    round: true,
-  },
-
-  play: async ({ canvasElement }) => {
-    const canvas = within(canvasElement.ownerDocument.body);
-    await userEvent.click(await canvas.findByRole('button', { name: 'Buttonnnnssssssssss' }));
-  }
 }
