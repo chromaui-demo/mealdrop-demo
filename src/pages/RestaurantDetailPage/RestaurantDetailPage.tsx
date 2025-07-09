@@ -12,7 +12,7 @@ import { Badge } from '../../components/Badge'
 import { Review } from '../../components/Review'
 import { AnimatedIllustration } from '../../components/AnimatedIllustration'
 import { ErrorBlock } from '../../components/ErrorBlock'
-import { Spinner } from '../../components/Spinner'
+import { LoadingSpinner } from './LoadingSpinner'
 
 import { FoodItemModal } from './components/FoodItemModal'
 import { FoodSection } from './components/FoodSection'
@@ -88,7 +88,7 @@ export const RestaurantDetailPage = () => {
   if (status === 'loading') {
     return (
       <PageTemplate type="sticky-header">
-        <Spinner />
+        <LoadingSpinner />
       </PageTemplate>
     )
   }
