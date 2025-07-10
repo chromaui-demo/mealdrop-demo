@@ -24,7 +24,7 @@ export const LoadingSpinner = () => {
     <>
       <LoadingContainer>
         <div>Looking for some food...</div>
-        <img src={womanSvg} style={{ maxHeight: 400 }} />
+        <img src={womanSvg} style={{ maxHeight: 400 }} alt="" />
         <StyledSVG
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 100 100"

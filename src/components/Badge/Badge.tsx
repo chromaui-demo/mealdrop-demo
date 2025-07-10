@@ -5,12 +5,12 @@ import { Body } from '../typography'
 const Container = styled.div(
   ({ theme: { color, borderRadius } }) => css`
     padding: 3px 8px;
-    background: ${color.bannerBackground};
+    background: ${color.badgeBackground};
     border-radius: ${borderRadius.xs};
     display: inline-block;
     text-transform: capitalize;
     span {
-      color: ${color.bannerText};
+      color: ${color.badgeText};
     }
   `
 )
