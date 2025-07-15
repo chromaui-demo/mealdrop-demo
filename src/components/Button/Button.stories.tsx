@@ -1,5 +1,5 @@
 import type { StoryObj, Meta } from '@storybook/react-vite'
-import { expect } from 'storybook/test'
+import { expect, userEvent, within, waitFor } from 'storybook/test';
 
 import { Button } from './Button'
 
@@ -20,7 +20,8 @@ export default meta
 
 type Story = StoryObj<typeof meta>
 
-export const Default: Story = {}
+export const Default: Story = {
+}
 
 export const Disabled: Story = {
   args: {
@@ -55,4 +56,16 @@ export const IconAndText: Story = {
       </div>
     ),
   },
+}
+
+export const LongButtonTitle: Story = {
+  args: {
+    children: 'Buttonnnnnssssssssss',
+  },
+
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement.ownerDocument.body);
+    await userEvent.click(await canvas.findByRole('button', { name: 'Buttonnnnnssssssssss' }));
+    await waitFor(() => expect(canvas.queryByRole('button', { name: 'Buttonnnnnssssssssss' })).toHaveTextContent('Buttonnnnnssssssssss'));
+  }
 }
