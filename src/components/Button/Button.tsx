@@ -29,7 +29,8 @@ const StyledButton = styled.button<StyledButtonProperties>(
 
     transition: box-shadow 150ms ease-in;
     z-index: 1;
-    background-color: ${$clear ? color.buttonClear : color.buttonPrimary};
+    background-color: ${$clear ? color.buttonClear : "#b4b4b4"
+    };
 
     &:hover {
       cursor: pointer;
