@@ -51,7 +51,7 @@ export const IconAndText: Story = {
     children: (
       <div style={{ paddingLeft: '16px' }}>
         <span style={{ color: '#949494' }}>Order</span>
-        <span style={{ color: 'white', paddingLeft: '8px' }}>€ 8</span>
+        <span style={{ color: 'white', paddingLeft: '7px' }}>€ 8</span>
       </div>
     ),
   },
