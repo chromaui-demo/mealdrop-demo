@@ -45,7 +45,7 @@ export const WithCartData: Story = {
             {
               id: 1,
               name: 'Cheeseburger',
-              description: 'Nice grilled burger with cheese',
+              description: 'Nice grilled burger with cheese...yum',
               price: 8.5,
               quantity: 1,
             },
