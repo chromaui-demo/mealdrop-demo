@@ -59,12 +59,12 @@ export const IconAndText: Story = {
 
 export const LongText: Story = {
   args: {
-    children: 'Buttonnnnnnssssssssssssssssssssssss',
+    children: 'Buttonnnnnnsssssssssssssssssssss',
     round: true,
   },
 
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement.ownerDocument.body);
-    await userEvent.click(await canvas.findByRole('button', { name: 'Buttonnnnnnssssssssssssssssssssssss' }));
+    await userEvent.click(await canvas.findByRole('button', { name: 'Buttonnnnnnsssssssssssssssssssss' }));
   }
 }
