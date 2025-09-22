@@ -30,7 +30,7 @@ type Story = StoryObj<typeof meta>
 export const Default: Story = {
   args: {
     ...restaurants[0],
-    name: 'Burger Kingdom',
+    name: 'Burger Kingdom!!',
   },
 }
 
