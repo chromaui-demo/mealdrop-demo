@@ -57,9 +57,3 @@ export const IconAndText: Story = {
   },
 }
 
-export const LongText: Story = {
-  args: {
-    children: 'Buttonnnnnnnssssssssssssssssssssssss',
-    round: true,
-  },
-}
