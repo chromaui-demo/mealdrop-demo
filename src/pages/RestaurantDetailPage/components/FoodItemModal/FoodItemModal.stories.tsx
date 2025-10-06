@@ -72,9 +72,7 @@ export const Desktop: Story = {
 }
 
 export const Mobile: Story = {
-  parameters: {
-    viewport: {
-      defaultViewport: 'iphonex',
-    },
-  },
+  globals: {
+    viewport: { value: 'iphonex', isRotated: false }
+  }
 }
