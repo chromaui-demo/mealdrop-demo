@@ -56,3 +56,10 @@ export const IconAndText: Story = {
     ),
   },
 }
+
+export const Rounded: Story = {
+  args: {
+    children: 'Button',
+    round: true,
+  },
+}

@@ -209,7 +209,7 @@ const breakpointViewports = Object.keys(breakpoints).reduce(
 const preview: Preview = {
   parameters: {
     viewport: {
-      viewports: {
+      options: {
         ...breakpointViewports,
         ...INITIAL_VIEWPORTS,
       },
