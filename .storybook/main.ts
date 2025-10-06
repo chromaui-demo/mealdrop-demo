@@ -14,6 +14,7 @@ const config: StorybookConfig = {
     'storybook-addon-test-codegen',
     '@storybook/addon-docs',
     '@storybook/addon-designs',
+    '@chromatic-com/storybook',
   ],
   typescript: {
     reactDocgen: 'react-docgen',
