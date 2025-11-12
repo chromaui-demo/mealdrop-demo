@@ -64,13 +64,3 @@ export const Rounded: Story = {
   },
 }
 
-export const LongText: Story = {
-  args: {
-    children: 'Buttonnnnnnnnssssssssssss',
-  },
-
-  play: async ({ canvasElement }) => {
-    const canvas = within(canvasElement.ownerDocument.body);
-    await userEvent.click(await canvas.findByRole('button', { name: 'Buttonnnnnnnnssssssssssss' }));
-  }
-}

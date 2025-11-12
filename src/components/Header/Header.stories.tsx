@@ -38,7 +38,7 @@ export const WithCartData: Story = {
           items: [
             {
               id: 2,
-              name: 'Fries',
+              name: 'French Fries',
               description: 'Fried french fries',
               price: 2.5,
               quantity: 1,
