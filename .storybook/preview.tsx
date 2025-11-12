@@ -198,7 +198,7 @@ const breakpointViewports = Object.keys(viewports).reduce(
         width: `${viewports[key as keyof typeof viewports]}px`,
         // Account for padding and border around viewport preview
         height: 'calc(100% - 20px)',
-      },
+      }, 
       type: 'other',
     }
     return acc
