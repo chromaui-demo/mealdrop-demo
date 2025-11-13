@@ -12,7 +12,7 @@ import styled, { css, ThemeProvider } from 'styled-components'
 
 import { demoModeLoader } from './demo-mode'
 import { rootReducer } from '../src/app-state'
-import { breakpoints } from '../src/styles/breakpoints'
+import { breakpoints, viewports } from '../src/styles/breakpoints'
 import { GlobalStyle } from '../src/styles/GlobalStyle'
 import { darkTheme, lightTheme } from '../src/styles/theme'
 
@@ -190,15 +190,15 @@ export const withRouter: Decorator = (StoryFn, { parameters: { deeplink } }) => 
 
 // Create custom viewports using widths defined in design tokens
 // eslint-disable-next-line unicorn/no-array-reduce
-const breakpointViewports = Object.keys(breakpoints).reduce(
+const breakpointViewports = Object.keys(viewports).reduce(
   (acc, key) => {
     acc[`breakpoint${key}`] = {
       name: `Breakpoint - ${key}`,
       styles: {
-        width: `${breakpoints[key as keyof typeof breakpoints]}px`,
+        width: `${viewports[key as keyof typeof viewports]}px`,
         // Account for padding and border around viewport preview
         height: 'calc(100% - 20px)',
-      },
+      }, 
       type: 'other',
     }
     return acc
@@ -209,7 +209,7 @@ const breakpointViewports = Object.keys(breakpoints).reduce(
 const preview: Preview = {
   parameters: {
     viewport: {
-      viewports: {
+      options: {
         ...breakpointViewports,
         ...INITIAL_VIEWPORTS,
       },

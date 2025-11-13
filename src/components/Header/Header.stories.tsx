@@ -1,3 +1,4 @@
+import { userEvent, within } from 'storybook/test';
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
 import { Header } from './Header'
@@ -37,10 +38,10 @@ export const WithCartData: Story = {
           items: [
             {
               id: 2,
-              name: 'Fries',
+              name: 'French Fries',
               description: 'Fried french fries',
-              price: 2.5,
-              quantity: 2,
+              price: 2.50,
+              quantity: 1,
             },
             {
               id: 1,
@@ -55,3 +56,10 @@ export const WithCartData: Story = {
     },
   },
 }
+
+export const WithCartOpen: Story = {
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement.ownerDocument.body);
+    await userEvent.click(await canvas.findByRole('button', { name: 'food cart' }));
+  }
+};

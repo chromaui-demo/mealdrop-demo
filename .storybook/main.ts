@@ -13,6 +13,8 @@ const config: StorybookConfig = {
     // TODO: this addon has a bad instrumentation of getConfig.asyncWrapper that should be fixed
     'storybook-addon-test-codegen',
     '@storybook/addon-docs',
+    '@storybook/addon-designs',
+    '@chromatic-com/storybook',
   ],
   typescript: {
     reactDocgen: 'react-docgen',
