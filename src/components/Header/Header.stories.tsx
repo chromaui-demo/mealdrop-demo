@@ -40,7 +40,7 @@ export const WithCartData: Story = {
               id: 2,
               name: 'French Fries',
               description: 'Fried french fries',
-              price: 2.5,
+              price: 2.75,
               quantity: 1,
             },
             {
