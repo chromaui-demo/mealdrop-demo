@@ -7,6 +7,10 @@ const config: StorybookConfig = {
     '../src/**/*.mdx',
     '../src/**/*.stories.@(js|jsx|ts|tsx)',
   ],
+  features: {
+    experimentalComponentsManifest: true,
+    experimentalCodeExamples: true,
+  },
   addons: [
     '@storybook/addon-vitest',
     '@storybook/addon-a11y',
@@ -14,6 +18,7 @@ const config: StorybookConfig = {
     'storybook-addon-test-codegen',
     '@storybook/addon-designs',
     '@storybook/addon-docs',
+    '@storybook/addon-mcp',
   ],
   typescript: {
     reactDocgen: 'react-docgen',
