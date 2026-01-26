@@ -7,7 +7,11 @@
       "Bash(npx tambo:*)",
       "Bash(yarn add:*)",
       "Bash(ls:*)",
-      "Bash(yarn tsc:*)"
+      "Bash(yarn tsc:*)",
+      "mcp__storybook-mcp__list-all-components",
+      "mcp__storybook-mcp__get-component-documentation",
+      "Bash(npx tsc:*)",
+      "Bash(timeout 10 yarn dev:*)"
     ]
   },
   "enableAllProjectMcpServers": true,
