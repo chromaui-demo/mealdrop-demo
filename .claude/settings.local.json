@@ -1,11 +1,17 @@
 {
   "permissions": {
     "allow": [
-      "WebFetch(domain:www.notion.so)"
+      "WebFetch(domain:www.notion.so)",
+      "Bash(npx tambo full-send)",
+      "Bash(npx tambo full-send --yes)",
+      "Bash(npx tambo:*)",
+      "Bash(yarn add:*)",
+      "Bash(ls:*)",
+      "Bash(yarn tsc:*)"
     ]
   },
+  "enableAllProjectMcpServers": true,
   "enabledMcpjsonServers": [
     "storybook-mcp"
-  ],
-  "enableAllProjectMcpServers": true
+  ]
 }
