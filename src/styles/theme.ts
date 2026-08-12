@@ -123,11 +123,11 @@ const color = {
   bannerBackground: baseColors.blue.base,
   buttonClear: 'transparent',
   buttonClearHover: baseColors.grey.light5,
-  buttonPrimary: baseColors.grey.dark6,
-  buttonPrimaryHover: baseColors.grey.dark5, // recheck
+  buttonPrimary: baseColors.green.base,
+  buttonPrimaryHover: baseColors.green.dark1,
   buttonSecondary: baseColors.green.base,
   buttonSecondaryHover: baseColors.green.dark1, // recheck
-  buttonText: baseColors.white,
+  buttonText: baseColors.otherBlack,
   cardBackground: baseColors.grey.light6,
   checkoutTopBackground: baseColors.green.base,
   checkoutBottomBackground: baseColors.grey.light6,
