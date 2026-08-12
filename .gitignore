@@ -47,3 +47,10 @@ storybook-static
 /playwright/.cache/
 chromatic-diagnostics.json
 cypress/downloads/chromatic-archives
+
+# Chromatic M2M API credentials (chromatic-api skill)
+.env.chromatic
+.omc
+
+# chromatic-api skill triage output
+chromatic-triage/
