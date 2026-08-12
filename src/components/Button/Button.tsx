@@ -4,10 +4,6 @@ import styled, { css, useTheme } from 'styled-components'
 import { breakpoints } from '../../styles/breakpoints'
 import { Icon, IconName } from '../Icon'
 
-const Spacer = styled.span`
-  padding-left: 1rem;
-`
-
 type StyledButtonProperties = {
   $clear: boolean
   $large: boolean
@@ -24,6 +20,7 @@ const StyledButton = styled.button<StyledButtonProperties>(
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    gap: 0.5rem;
     padding: ${$withIcon ? '0.7rem' : $large ? '1.125rem 1rem' : '0.875rem 1rem'};
     color: ${$clear ? color.primaryText : color.buttonText};
 
@@ -113,7 +110,6 @@ export const Button: React.FC<React.PropsWithChildren<ButtonProperties>> = ({
       {icon && (
         <Icon color={clear ? color.primaryText : color.buttonText} size={iconSize} name={icon} />
       )}
-      {icon && children && <Spacer />}
       {children}
     </StyledButton>
   )
