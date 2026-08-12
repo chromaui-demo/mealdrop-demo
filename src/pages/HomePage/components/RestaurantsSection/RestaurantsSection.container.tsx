@@ -44,8 +44,8 @@ export const RestaurantsSectionComponent = ({
       <Carousel
         draggable={isOnMobile}
         partialVisible={isOnMobile}
-        customLeftArrow={<PreviousButton name="arrow-left" />}
-        customRightArrow={<NextButton name="arrow-right" />}
+        customLeftArrow={<PreviousButton name="arrow-left" aria-label="Previous restaurants" />}
+        customRightArrow={<NextButton name="arrow-right" aria-label="Next restaurants" />}
         responsive={{
           desktop: {
             breakpoint: { max: 5000, min: 1024 },

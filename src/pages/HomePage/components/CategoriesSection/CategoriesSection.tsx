@@ -39,8 +39,8 @@ export const CategoriesSection = ({ categories }: CategoriesSectionProps) => {
       <Carousel
         draggable={isOnMobile}
         partialVisible={isOnMobile}
-        customLeftArrow={<PreviousButton name="arrow-left" />}
-        customRightArrow={<NextButton name="arrow-right" />}
+        customLeftArrow={<PreviousButton name="arrow-left" aria-label="Previous categories" />}
+        customRightArrow={<NextButton name="arrow-right" aria-label="Next categories" />}
         responsive={{
           desktop: {
             breakpoint: { max: 5000, min: 1024 },

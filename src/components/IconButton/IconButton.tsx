@@ -24,6 +24,8 @@ type IconButtonProps = {
   name: IconName
   small?: boolean
   onClick?: () => void
+  // icon-only button: an accessible name is mandatory
+  'aria-label': string
 } & Omit<ComponentProps<'button'>, 'name' | 'small'>
 
 export const IconButton = ({ small = false, name, ...props }: IconButtonProps) => {
