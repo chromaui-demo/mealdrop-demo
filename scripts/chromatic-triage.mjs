@@ -23,7 +23,11 @@ if (!TOKEN) {
   process.exit(1)
 }
 
-const { projectId } = JSON.parse(readFileSync(new URL('../chromatic.config.json', import.meta.url)))
+// CI publishes to the project its token points at, which can differ from the
+// (possibly stale) projectId in chromatic.config.json — allow an override.
+const projectId =
+  process.env.CHROMATIC_PROJECT_ID ??
+  JSON.parse(readFileSync(new URL('../chromatic.config.json', import.meta.url))).projectId
 
 async function gql(query, variables) {
   const response = await fetch(API_URL, {
