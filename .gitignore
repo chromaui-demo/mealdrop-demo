@@ -54,3 +54,6 @@ cypress/downloads/chromatic-archives
 
 # chromatic-api skill triage output
 chromatic-triage/
+
+# python bytecode (chromatic-api skill scripts)
+__pycache__/
