@@ -50,8 +50,8 @@ export const IconAndText: Story = {
     icon: 'cart',
     children: (
       <div style={{ paddingLeft: '16px' }}>
-        <span style={{ color: '#949494' }}>Order</span>
-        <span style={{ color: 'white', paddingLeft: '8px' }}>€ 8</span>
+        <span style={{ color: '#4D4D4D' }}>Order</span>
+        <span style={{ color: '#2C2C2C', paddingLeft: '8px' }}>€ 8</span>
       </div>
     ),
   },

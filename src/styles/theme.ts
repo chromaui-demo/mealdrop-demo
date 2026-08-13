@@ -119,7 +119,7 @@ const color = {
   accentText: baseColors.black,
   badgeBackground: baseColors.grey.light4,
   badgeText: baseColors.grey.dark2,
-  cartButtonText: baseColors.grey.base,
+  cartButtonText: baseColors.grey.dark3,
   bannerBackground: baseColors.blue.base,
   buttonClear: 'transparent',
   buttonClearHover: baseColors.grey.light5,
