@@ -9,14 +9,17 @@ import { HomePage } from './HomePage'
 const meta = {
   title: 'Pages/HomePage',
   component: HomePage,
+
+  beforeEach({ msw }) {
+    msw.use(http.get(BASE_URL, () => HttpResponse.json(restaurantsCompleteData)))
+  },
+
   parameters: {
     layout: 'fullscreen',
+
     design: {
       type: 'figma',
       url: 'https://www.figma.com/file/3Q1HTCalD0lJnNvcMoEw1x/Mealdrop?node-id=135%3A258',
-    },
-    msw: {
-      handlers: [http.get(BASE_URL, () => HttpResponse.json(restaurantsCompleteData))],
     },
   },
 } satisfies Meta<typeof HomePage>

@@ -1,3 +1,4 @@
+import { userEvent, within, waitFor, expect } from 'storybook/test';
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
 import { CheckoutPage } from './CheckoutPage'
@@ -46,3 +47,17 @@ export const WithItems: Story = {
     },
   },
 }
+
+export const FormRequiredTest: Story = {
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement.ownerDocument.body);
+    await userEvent.click(await canvas.findByRole('textbox', { name: 'First name' }));
+    await userEvent.type(await canvas.findByRole('textbox', { name: 'First name' }), 'John');
+    await userEvent.tab();
+    await userEvent.type(await canvas.findByRole('textbox', { name: 'Last name' }), 'Doe');
+    await userEvent.tab();
+    await userEvent.click(await canvas.findByRole('button', { name: 'Next' }));
+    await waitFor(() => expect((canvas.queryAllByText('Required', { exact: true }))[0]).toHaveTextContent('Required'));
+    await waitFor(() => expect((canvas.queryAllByText('Required', { exact: true }))[1]).toHaveTextContent('Required'));
+  }
+};

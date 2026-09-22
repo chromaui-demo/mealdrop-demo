@@ -9,35 +9,39 @@ import { withDeeplink } from '../../.storybook/withDeeplink'
 const meta = {
   title: 'UserFlows/App',
   component: () => <></>,
+
+  beforeEach({ msw }) {
+    msw.use(
+      http.get(BASE_URL, ({ request }) => {
+        const url = new URL(request.url)
+        const id = url.searchParams.get('id')
+        const category = url.searchParams.get('category')
+
+        if (id) {
+          return HttpResponse.json(restaurantsCompleteData[0])
+        }
+
+        if (category) {
+          return HttpResponse.json([
+            restaurantsCompleteData[0],
+            restaurantsCompleteData[1],
+            restaurantsCompleteData[2],
+          ])
+        }
+
+        return HttpResponse.json(restaurantsCompleteData)
+      })
+    )
+  },
+
   parameters: {
     layout: 'fullscreen',
     chromatic: { disable: true },
     deeplink: { route: '/', path: '/' },
-    msw: {
-      handlers: [
-        http.get(BASE_URL, ({ request }) => {
-          const url = new URL(request.url)
-          const id = url.searchParams.get('id')
-          const category = url.searchParams.get('category')
-
-          if (id) {
-            return HttpResponse.json(restaurantsCompleteData[0])
-          }
-
-          if (category) {
-            return HttpResponse.json([
-              restaurantsCompleteData[0],
-              restaurantsCompleteData[1],
-              restaurantsCompleteData[2],
-            ])
-          }
-
-          return HttpResponse.json(restaurantsCompleteData)
-        }),
-      ],
-    },
   },
+
   decorators: [withDeeplink],
+
   argTypes: {
     demoMode: {
       control: { type: 'boolean' },

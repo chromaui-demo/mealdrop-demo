@@ -14,20 +14,24 @@ const meta = {
   title: 'Pages/RestaurantDetailPage',
   component: RestaurantDetailPage,
   decorators: [withDeeplink],
+
+  beforeEach({ msw }) {
+    msw.use(
+      http.get(BASE_URL, () => {
+        return HttpResponse.json(restaurantsCompleteData[0])
+      })
+    )
+  },
+
   parameters: {
     layout: 'fullscreen',
+
     deeplink: {
       route: '/restaurants/1',
       path: '/restaurants/:id',
     },
-    msw: {
-      handlers: [
-        http.get(BASE_URL, () => {
-          return HttpResponse.json(restaurantsCompleteData[0])
-        }),
-      ],
-    },
   },
+
   render: () => {
     return (
       <>
@@ -69,23 +73,25 @@ export const WithItemsInTheCartDollarCurrency: Story = {
   ...WithItemsInTheCart,
   beforeEach: async () => {
     mocked(getCurrency).mockReturnValue('USD')
-  }
+  },
 }
 
 export const Loading: Story = {
+  beforeEach({ msw }) {
+    msw.use(
+      http.get(BASE_URL, async () => {
+        await delay('infinite')
+      })
+    )
+  },
+
   parameters: {
     design: {
       type: 'figma',
       url: 'https://www.figma.com/file/3Q1HTCalD0lJnNvcMoEw1x/Mealdrop?node-id=2152%3A3158',
     },
-    msw: {
-      handlers: [
-        http.get(BASE_URL, async () => {
-          await delay('infinite')
-        }),
-      ],
-    },
   },
+
   play: async ({ canvas }) => {
     const item = await canvas.findByText(/Looking for some food.../i)
     await expect(item).toBeInTheDocument()
@@ -93,19 +99,21 @@ export const Loading: Story = {
 }
 
 export const NotFound: Story = {
+  beforeEach({ msw }) {
+    msw.use(
+      http.get(BASE_URL, () => {
+        return HttpResponse.json(null, { status: 404 })
+      })
+    )
+  },
+
   parameters: {
     design: {
       type: 'figma',
       url: 'https://www.figma.com/file/3Q1HTCalD0lJnNvcMoEw1x/Mealdrop?node-id=1097%3A3785',
     },
-    msw: {
-      handlers: {
-        error: http.get(BASE_URL, () => {
-          return HttpResponse.json(null, { status: 404 })
-        }),
-      },
-    },
   },
+
   play: async ({ canvas }) => {
     const item = await canvas.findByText(/We can't find this page/i)
     await expect(item).toBeInTheDocument()
@@ -113,19 +121,21 @@ export const NotFound: Story = {
 }
 
 export const Error: Story = {
+  beforeEach({ msw }) {
+    msw.use(
+      http.get(BASE_URL, () => {
+        return HttpResponse.json({}, { status: 500 })
+      })
+    )
+  },
+
   parameters: {
     design: {
       type: 'figma',
       url: 'https://www.figma.com/file/3Q1HTCalD0lJnNvcMoEw1x/Mealdrop?node-id=1091%3A4537',
     },
-    msw: {
-      handlers: [
-        http.get(BASE_URL, () => {
-          return HttpResponse.json({}, { status: 500 })
-        }),
-      ],
-    },
   },
+
   play: async ({ canvas, step }) => {
     await step('Name of step', async () => {
       const item = await canvas.findByText(/Something went wrong!/i)

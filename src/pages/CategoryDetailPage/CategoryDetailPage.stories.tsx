@@ -25,31 +25,29 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
-  parameters: {
-    msw: {
-      handlers: [http.get(BASE_URL, () => HttpResponse.json([restaurants[0]]))],
-    },
+  beforeEach({ msw }) {
+    msw.use(http.get(BASE_URL, () => HttpResponse.json([restaurants[0]])))
   },
 }
 
 export const Loading: Story = {
-  parameters: {
-    msw: {
-      handlers: [
-        http.get(BASE_URL, async () => {
-          await delay('infinite')
-        }),
-      ],
-    },
+  beforeEach({ msw }) {
+    msw.use(
+      http.get(BASE_URL, async () => {
+        await delay('infinite')
+      })
+    )
   },
 }
 
 export const Missing: Story = {
+  beforeEach({ msw }) {
+    msw.use(http.get(BASE_URL, () => HttpResponse.json([])))
+  },
+
   parameters: {
     deeplink: { route: '/categories/wrong', path: '/categories/:id' },
-    msw: {
-      handlers: [http.get(BASE_URL, () => HttpResponse.json([]))],
-    },
+
     design: {
       type: 'figma',
       url: 'https://www.figma.com/file/3Q1HTCalD0lJnNvcMoEw1x/Mealdrop?type=design&node-id=426-1402&mode=design&t=PGeoMU7t8HOFToQL-4',

@@ -18,10 +18,9 @@ export const Default: Story = {
   args: {
     title: 'Our favorite picks',
   },
-  parameters: {
-    msw: {
-      handlers: [http.get(BASE_URL, () => HttpResponse.json(restaurantsCompleteData))],
-    },
+
+  beforeEach({ msw }) {
+    msw.use(http.get(BASE_URL, () => HttpResponse.json(restaurantsCompleteData)))
   },
 }
 
@@ -29,13 +28,12 @@ export const Loading: Story = {
   args: {
     ...Default.args,
   },
-  parameters: {
-    msw: {
-      handlers: [
-        http.get(BASE_URL, async () => {
-          await delay('infinite')
-        }),
-      ],
-    },
+
+  beforeEach({ msw }) {
+    msw.use(
+      http.get(BASE_URL, async () => {
+        await delay('infinite')
+      })
+    )
   },
 }
