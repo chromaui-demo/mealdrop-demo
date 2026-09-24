@@ -16,10 +16,17 @@ type StyledButtonProperties = {
 }
 
 const StyledButton = styled.button<StyledButtonProperties>(
-  ({ $clear, $large, $round, $withIcon, theme: { color, boxShadow, borderRadius } }) => css`
+  ({
+    $clear,
+    $large,
+    $round,
+    $withIcon,
+    theme: { color, boxShadow, borderRadius, typography },
+  }) => css`
     outline: none;
     border: 0;
     font-family: 'Hind';
+    font-size: ${typography.fontSize.bodyXXS};
     border-radius: ${$round ? borderRadius.xl : borderRadius.xs};
     display: inline-flex;
     align-items: center;
@@ -29,11 +36,11 @@ const StyledButton = styled.button<StyledButtonProperties>(
 
     transition: box-shadow 150ms ease-in;
     z-index: 1;
-    background-color: ${$clear ? color.buttonClear : color.buttonPrimary};
+    background-color: ${$clear ? color.buttonClear : '#2563EB'};
 
     &:hover {
       cursor: pointer;
-      background-color: ${$clear ? color.buttonClearHover : color.buttonPrimaryHover};
+      background-color: ${$clear ? color.buttonClearHover : '#1D4ED8'};
     }
 
     &:focus {
@@ -41,7 +48,7 @@ const StyledButton = styled.button<StyledButtonProperties>(
     }
 
     &:disabled {
-      background-color: ${$clear ? color.buttonClear : color.buttonPrimary};
+      background-color: ${$clear ? color.buttonClear : '#2563EB'};
       opacity: 0.4;
     }
 
