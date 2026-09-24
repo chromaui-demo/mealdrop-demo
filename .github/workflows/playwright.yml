@@ -8,7 +8,7 @@ jobs:
   playwright:
     runs-on: ubuntu-latest
     container:
-      image: mcr.microsoft.com/playwright:v1.53.1-noble
+      image: mcr.microsoft.com/playwright:v1.63.0-noble
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
