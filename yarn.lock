@@ -6398,7 +6398,7 @@ __metadata:
     lint-staged: "npm:^15.4.3"
     msw: "npm:^2.7.3"
     msw-storybook-addon: "npm:^2.0.6"
-    playwright: "npm:^1.50.1"
+    playwright: "npm:1.53.1"
     prettier: "npm:^3.5.2"
     react: "npm:^19.0.0"
     react-dom: "npm:^19.0.0"
@@ -12073,7 +12073,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"playwright@npm:^1.14.0, playwright@npm:^1.50.1":
+"playwright@npm:^1.14.0":
   version: 1.51.1
   resolution: "playwright@npm:1.51.1"
   dependencies:
