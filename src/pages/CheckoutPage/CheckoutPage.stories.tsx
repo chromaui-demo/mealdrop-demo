@@ -66,9 +66,8 @@ export const ApplyPromoCode: Story = {
   play: async ({ canvas, userEvent }) => {
     await userEvent.type(canvas.getByLabelText('Promo code'), 'SAVE5')
     await userEvent.click(canvas.getByRole('button', { name: 'Apply' }))
-    await expect(await canvas.findByText('Discount (SAVE5)')).toBeInTheDocument()
-    await expect(
-      canvas.getByText('Promo code', { exact: false, selector: 'span' })
-    ).toHaveTextContent('Promo code SAVE5 applied')
+    await expect(await canvas.findByText('Discount')).toBeInTheDocument()
+    await expect(canvas.getByText('SAVE5')).toBeInTheDocument()
+    await expect(canvas.getByRole('button', { name: 'Remove promo code SAVE5' })).toBeVisible()
   },
 }

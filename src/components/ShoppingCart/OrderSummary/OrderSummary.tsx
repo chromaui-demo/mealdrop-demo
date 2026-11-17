@@ -110,9 +110,14 @@ export const OrderSummary = ({
         {hasItems && promo && (
           <PromoSection>
             <AppliedPromo>
-              <Body type="span">
-                Promo code <strong>{promo.code}</strong> applied · {describePromoCode(promo)}
-              </Body>
+              <div>
+                <Body type="span" fontWeight="bold">
+                  {promo.code}
+                </Body>
+                <Body type="span" size="S">
+                  {describePromoCode(promo)} applied
+                </Body>
+              </div>
               {onRemovePromoCode && (
                 <Button
                   clear
@@ -137,7 +142,7 @@ export const OrderSummary = ({
               <Body type="span">{toCurrency(subtotal)}</Body>
             </PriceRow>
             <PriceRow>
-              <Body type="span">Discount ({promo?.code})</Body>
+              <Body type="span">Discount</Body>
               <Body type="span">−{toCurrency(discount)}</Body>
             </PriceRow>
           </PriceBreakdown>

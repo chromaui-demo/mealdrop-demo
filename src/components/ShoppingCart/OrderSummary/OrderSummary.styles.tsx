@@ -73,6 +73,20 @@ export const PromoForm = styled.form(
       flex: 1;
       min-width: 0;
     }
+
+    /* Percentage width keeps the input from forcing the summary wider */
+    input {
+      width: 100%;
+      min-width: 0;
+      height: 44px;
+    }
+
+    button {
+      flex-shrink: 0;
+      height: 44px;
+      padding-top: 0;
+      padding-bottom: 0;
+    }
   `
 )
 
