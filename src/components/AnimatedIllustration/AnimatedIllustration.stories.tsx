@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
+import { expect, waitFor } from 'storybook/test'
 
 import { AnimatedIllustration } from './AnimatedIllustration'
 
@@ -8,7 +9,16 @@ const meta = {
   parameters: {
     layout: 'fullscreen',
     storyshots: { disable: true },
-    chromatic: { delay: 1000 },
+  },
+  // The animation JSON is lazy loaded, so wait until Lottie has drawn it before
+  // the story counts as rendered. A fixed delay let Chromatic capture it blank.
+  play: async ({ canvasElement }) => {
+    await waitFor(
+      () => expect(canvasElement.querySelector('svg path, svg image')).toBeInTheDocument(),
+      {
+        timeout: 10_000,
+      }
+    )
   },
   decorators: [
     (StoryEl) => (
