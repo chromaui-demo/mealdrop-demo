@@ -1,8 +1,13 @@
 import styled, { css } from 'styled-components'
 
-import { useAppSelector } from '../../app-state'
+import { useAppDispatch, useAppSelector } from '../../app-state'
 import { OrderSummary } from '../../components/ShoppingCart'
-import { selectCartItems } from '../../app-state/cart'
+import {
+  applyPromoCodeAction,
+  removePromoCodeAction,
+  selectCartItems,
+  selectCartPromoCode,
+} from '../../app-state/cart'
 import { breakpoints } from '../../styles/breakpoints'
 import { Heading } from '../../components/typography/Heading'
 import { PageTemplate } from '../../templates/PageTemplate'
@@ -58,7 +63,9 @@ const ContentContainer = styled.div(
 )
 
 export const CheckoutPage = () => {
+  const dispatch = useAppDispatch()
   const cartItems = useAppSelector(selectCartItems)
+  const promoCode = useAppSelector(selectCartPromoCode)
 
   return (
     <PageTemplate type="basic">
@@ -71,7 +78,12 @@ export const CheckoutPage = () => {
         <BottomContainer className="container">
           <MultiStepForm />
           <OrderDetailsContainer>
-            <OrderSummary cartItems={cartItems} />
+            <OrderSummary
+              cartItems={cartItems}
+              promoCode={promoCode}
+              onApplyPromoCode={(code) => dispatch(applyPromoCodeAction(code))}
+              onRemovePromoCode={() => dispatch(removePromoCodeAction())}
+            />
           </OrderDetailsContainer>
         </BottomContainer>
       </ContentContainer>

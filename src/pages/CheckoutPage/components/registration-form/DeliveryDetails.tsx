@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom'
 
 import { saveOrderAction } from '../../../../app-state/order'
 import { useAppDispatch, useAppSelector } from '../../../../app-state'
-import { clearCartAction, selectCartItems } from '../../../../app-state/cart'
+import { clearCartAction, selectCartItems, selectCartPromoCode } from '../../../../app-state/cart'
 import { Button } from '../../../../components/Button'
 import { Input } from '../../../../components/forms/Input'
 import { type DeliveryDetailsFormData } from './validation'
@@ -45,6 +45,7 @@ export const DeliveryDetails = ({ formData, setFormData, onPrevious }: DeliveryD
   const navigate = useNavigate()
   const dispatch = useAppDispatch()
   const cartItems = useAppSelector(selectCartItems)
+  const promoCode = useAppSelector(selectCartPromoCode)
   const [errors, setErrors] = useState<FormErrors>({})
   const [form, setForm] = useState<DeliveryDetailsFormData>(formData)
   const [isSubmitted, setIsSubmitted] = useState(false)
@@ -81,7 +82,7 @@ export const DeliveryDetails = ({ formData, setFormData, onPrevious }: DeliveryD
 
     if (!hasErrors) {
       setFormData(form)
-      dispatch(saveOrderAction(cartItems))
+      dispatch(saveOrderAction({ items: cartItems, promoCode }))
       dispatch(clearCartAction())
       navigate('/success')
     }

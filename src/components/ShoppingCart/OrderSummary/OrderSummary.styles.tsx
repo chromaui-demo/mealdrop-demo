@@ -44,3 +44,56 @@ export const CartItemsContainer = styled.div`
   flex-direction: column;
   overflow-y: auto;
 `
+
+export const PromoSection = styled.div(
+  ({ theme: { spacing } }) => css`
+    margin-top: ${spacing.s};
+    padding-top: ${spacing.s};
+    border-top: 1px solid #f5f6f7;
+  `
+)
+
+export const PromoForm = styled.form(
+  ({ theme: { color, spacing } }) => css`
+    display: flex;
+    flex-direction: column;
+
+    label {
+      color: ${color.label};
+      padding-bottom: ${spacing.xxs};
+    }
+
+    > div {
+      display: flex;
+      align-items: flex-start;
+      gap: ${spacing.xs};
+    }
+
+    > div > div {
+      flex: 1;
+      min-width: 0;
+    }
+  `
+)
+
+export const AppliedPromo = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+`
+
+export const PriceBreakdown = styled.div(
+  ({ theme: { spacing } }) => css`
+    display: flex;
+    flex-direction: column;
+    gap: ${spacing.xxs};
+    margin-top: ${spacing.s};
+    margin-bottom: ${spacing.xs};
+  `
+)
+
+export const PriceRow = styled.div`
+  display: flex;
+  justify-content: space-between;
+`

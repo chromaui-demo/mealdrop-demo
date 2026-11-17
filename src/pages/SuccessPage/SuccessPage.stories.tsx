@@ -43,3 +43,16 @@ export const Default: Story = {
     },
   },
 }
+
+export const WithPromoCode: Story = {
+  parameters: {
+    store: {
+      initialState: {
+        order: {
+          ...Default.parameters?.store.initialState.order,
+          promoCode: 'WELCOME10',
+        },
+      },
+    },
+  },
+}

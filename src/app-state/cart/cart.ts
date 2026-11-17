@@ -8,6 +8,7 @@ export interface CartItem extends ShopItem {
 export type CartState = {
   visible: boolean
   items: CartItem[]
+  promoCode?: string | null
 }
 
 const toggleVisibility: CaseReducer<CartState> = (state) => {
@@ -17,6 +18,15 @@ const toggleVisibility: CaseReducer<CartState> = (state) => {
 const clearCart: CaseReducer<CartState> = (state) => {
   state.visible = false
   state.items = []
+  state.promoCode = null
+}
+
+const applyPromoCode: CaseReducer<CartState, PayloadAction<string>> = (state, action) => {
+  state.promoCode = action.payload
+}
+
+const removePromoCode: CaseReducer<CartState> = (state) => {
+  state.promoCode = null
 }
 
 const clearItem: CaseReducer<CartState, PayloadAction<CartItem>> = (state, action) => {
@@ -48,6 +58,7 @@ const saveItem: CaseReducer<CartState, PayloadAction<CartItem>> = (state, action
 const initialState: CartState = {
   visible: false,
   items: [],
+  promoCode: null,
 }
 
 const cartSlice = createSlice({
@@ -59,6 +70,8 @@ const cartSlice = createSlice({
     clearItemAction: clearItem,
     removeItemAction: removeItem,
     clearCartAction: clearCart,
+    applyPromoCodeAction: applyPromoCode,
+    removePromoCodeAction: removePromoCode,
   },
 })
 
@@ -72,6 +85,8 @@ export const {
   clearItemAction,
   removeItemAction,
   clearCartAction,
+  applyPromoCodeAction,
+  removePromoCodeAction,
 } = actions
 
 // Export the reducer, either as a default or named export

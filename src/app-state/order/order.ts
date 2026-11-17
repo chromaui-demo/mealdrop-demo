@@ -4,18 +4,27 @@ import { CartItem } from '../cart'
 
 export type OrderState = {
   items: CartItem[]
+  promoCode?: string | null
 }
 
-const saveOrder: CaseReducer<OrderState, PayloadAction<CartItem[]>> = (state, action) => {
-  state.items = action.payload
+type SaveOrderPayload = {
+  items: CartItem[]
+  promoCode?: string | null
+}
+
+const saveOrder: CaseReducer<OrderState, PayloadAction<SaveOrderPayload>> = (state, action) => {
+  state.items = action.payload.items
+  state.promoCode = action.payload.promoCode ?? null
 }
 
 const clearOrder: CaseReducer<OrderState> = (state) => {
   state.items = []
+  state.promoCode = null
 }
 
 const initialState: OrderState = {
   items: [],
+  promoCode: null,
 }
 
 const orderSlice = createSlice({

@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components'
 
 import ladies from '../../assets/images/ladies-sushi.svg'
 import { useAppSelector } from '../../app-state'
-import { selectOrderItems } from '../../app-state/order'
+import { selectOrderItems, selectOrderPromoCode } from '../../app-state/order'
 import { PageTemplate } from '../../templates/PageTemplate'
 import { TopBanner } from '../../components/TopBanner'
 import { Heading } from '../../components/typography/Heading'
@@ -55,6 +55,7 @@ const OrderSummaryContainer = styled.div`
 
 export const SuccessPage = () => {
   const orderItems = useAppSelector(selectOrderItems)
+  const promoCode = useAppSelector(selectOrderPromoCode)
   return (
     <PageTemplate type="basic">
       <Container>
@@ -62,7 +63,7 @@ export const SuccessPage = () => {
         <OrderSummaryContainer>
           <Body type="span">Estimated delivery</Body>
           <StyledHeading level={2}>13:23 today</StyledHeading>
-          <OrderSummary cartItems={orderItems} />
+          <OrderSummary cartItems={orderItems} promoCode={promoCode} />
         </OrderSummaryContainer>
         <Image src={ladies} />
       </Container>
